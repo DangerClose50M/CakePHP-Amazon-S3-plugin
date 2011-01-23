@@ -34,25 +34,51 @@ class AmazonS3Source extends DataSource
      *
      * @param string $config 
      * @access public
-     * @author primeminister
      */
-	function __construct($config) {
-		parent::__construct($config);
-		$this->S3 = new S3($config['accessKey'], $config['secretKey'], false);
-	}
+    public function __construct($config) {
+        $this->S3 = new S3($config['accessKey'], $config['secretKey'], false);
+        parent::__construct($config);
+    }
+    
+    /**
+     * Describe
+     *
+     * @param object $model
+     * @return array
+     * @access public
+     */
+    public function describe($model) {
+        return $this->_schema['amazon_s3'];
+    }
+    
+    /**
+     * Read amazon S3 bucket
+     *
+     * @param object $model 
+     * @param array $queryData
+     * @return array
+     * @access public
+     */
+    public function read($model, $queryData = array()) 
+    {
+        $result = array();
+        if (!isset($queryData['conditions']['bucket'])) {
+            $queryData['conditions']['bucket'] = $this->config['bucket'];
+        }
+        print_r($queryData);
+        return $result;
+    }
 
+     
     /**
      * find items or item on amazon S3
      *
      * @param mixed $type Find by method (first / all) or just the query (method defaults to all)
      * @param mixed $query string or array of search options
-     * @access public
      * @return array Array of records
-     * @author primeminister
+     * @access public
      */
-    public function read(&$model, $queryData = array(), $recursive = null) {
-        print_r($queryData);
-	//function find($type, $uri = null, $options=array()) {
+    function find($type, $uri = null, $options=array()) {
 	    /*
 		if (!is_string($type) || (is_string($type) && !array_key_exists($type, $this->_findMethods))) {
 			$uri = $type;
@@ -89,9 +115,8 @@ class AmazonS3Source extends DataSource
 	 *
 	 * @param string $data 
 	 * @param string $options 
-	 * @access public
 	 * @return void
-	 * @author primeminister
+	 * @access public
 	 */
     public function save($data, $options=array()) {
         $options = array_merge(array(
@@ -139,7 +164,7 @@ class AmazonS3Source extends DataSource
      *
      * @param string $filename 
      * @return void
-     * @author Charlie
+     * @access private
      */
     private function _returnMIMEType($filename)
     {
