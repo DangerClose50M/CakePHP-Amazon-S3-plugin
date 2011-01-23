@@ -2,7 +2,7 @@
 /**
  * A CakePHP datasource for interacting with the amazon S3.
  *
- * Create datasource var in APP/config/database.php:
+ * Create datasource config in APP/config/database.php:
  * var $amazon_s3 = array(
  * 'datasource' => 'amazon_s3',
  * 'bucket' => 's3.cloudspeakers.com',
@@ -10,15 +10,10 @@
  * 'secretKey' => 'xxxx'
  * );
  * 
- * Use it in your code:
- * $AmazonS3 = ConnectionManager::getDataSource('amazon_s3');
- * $Amazon->save($data, array('path'=>$path));
- *  * 
+ * 
  * @package datasources
  * @author primeminister
- * @copyright 2009 Ministry of Web Development
- * @date $LastChangedDate: 2009-08-03 23:59:40 +0200 (ma, 03 aug 2009) $
- * @version $Rev: 1794 $
+ * @copyright 2011 Ministry of Web Development
  * @link 
  */
 App::import('Vendor', 'AmazonS3.S3');
