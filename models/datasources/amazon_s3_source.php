@@ -1,13 +1,13 @@
 <?php
 /**
- * A CakePHP datasource for interacting with the amazon s3.
+ * A CakePHP datasource for interacting with the amazon S3.
  *
  * Create datasource var in APP/config/database.php:
  * var $amazon_s3 = array(
  * 'datasource' => 'amazon_s3',
  * 'bucket' => 's3.cloudspeakers.com',
- * 'accessKey' => '1GW46A3HN9KJA6HC2302',
- * 'secretKey' => 'wHZZSvGXfYKzo9Pa9qNrDpus1G4Mnc9QgBsjvIWi'
+ * 'accessKey' => 'xxxx',
+ * 'secretKey' => 'xxxx'
  * );
  * 
  * Use it in your code:
