@@ -10,12 +10,11 @@
  * 'secretKey' => 'xxxx'
  * );
  * 
- * 
- * @package datasources
+ * @package AmazonS3
  * @author primeminister
- * @copyright 2011 Ministry of Web Development
- * @link 
- */
+ * @copyright 2011 Ministry of Web Developemt
+ * @license MIT
+**/
 App::import('Vendor', 'AmazonS3.S3');
 
 class AmazonS3Source extends DataSource 

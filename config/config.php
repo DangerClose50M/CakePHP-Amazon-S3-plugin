@@ -1,6 +1,6 @@
 <?php
 /**
- * Amazon S3 app controller
+ * Amazon S3 config
  * 
  * @package AmazonS3
  * @author primeminister
@@ -8,7 +8,6 @@
  * @license MIT
  **/
 
-class AmazonS3AppController extends AppController 
-{
-
-}
+$config['S3']['bucket'] = '';
+$config['S3']['accessKey'] = '';
+$config['S3']['secretKey'] = '';
